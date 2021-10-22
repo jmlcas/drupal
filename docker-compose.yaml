@@ -8,8 +8,11 @@ services:
     restart: unless-stopped
     ports:
       - "8200:80"
-    volumes:
-      - ./html:/var/www/html  
+    volumes:  
+      - ./d_modules:/var/www/html/modules \
+      - ./d_profiles:/var/www/html/profiles \
+      - ./d_sites:/var/www/html/sites \
+      - ./d_themes:/var/www/html/themes \
     depends_on:
       - drupaldb
     environment:
@@ -26,12 +29,12 @@ services:
       - "3306"
     restart: unless-stopped
     volumes:
-      - ./data:/var/lib/mysql
+      - ./db_data:/var/lib/mysql
     environment:
       MYSQL_DATABASE: drupal
       MYSQL_USER: user
       MYSQL_PASSWORD: p4ssw0rd
-      MYSQL_RANDOM_ROOT_PASSWORD: "1"
+      MYSQL_ROOT_PASSWORD: p4ssw0rd
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -41,11 +44,12 @@ services:
       PMA_HOST: drupaldb
       PMA_USER: user
       PMA_PASSWORD: p4ssw0rd
-#      PMA_ARBITRARY: "1"
     ports:
       - "8080:80"
     depends_on:
-      - drupaldb
+      - drupaldb   
+      
+      
       
       
       
