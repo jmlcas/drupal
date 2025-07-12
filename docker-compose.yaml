@@ -1,9 +1,7 @@
-version: '3.1'
-
 services:
 
   drupal:
-    image: drupal:9-php7.4-apache
+    image: drupal:10-apache
     container_name: drupal
     restart: unless-stopped
     ports:
@@ -22,8 +20,7 @@ services:
       PASS: p4ssw0rd  
       
   drupaldb:
-    image: mysql:8.0
-    command: --default-authentication-plugin=mysql_native_password 
+    image: mysql:latest
     container_name: drupaldb 
     expose:
       - "3306"
