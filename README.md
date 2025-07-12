@@ -1,8 +1,7 @@
-# drupal
-Drupal - CMS - Docker-compose
+# Drupal
 
-Ver en "Localhost:8200"
+Ver en "http://localhost:8200"
 
-PhpMyAdmin ver en "localhost:8080"
+PhpMyAdmin ver en "http://localhost:8080"
 
 
