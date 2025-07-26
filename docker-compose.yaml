@@ -20,7 +20,7 @@ services:
       PASS: p4ssw0rd  
       
   drupaldb:
-    image: mysql:latest
+    image: mariadb:latest
     container_name: drupaldb 
     expose:
       - "3306"
